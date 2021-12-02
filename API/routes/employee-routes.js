@@ -10,7 +10,7 @@ router.post('/',
     [
         check('fullName').isLength({ min: 2 }),
         check('email').not().isEmpty(),
-        check('email').isEmail(),
+        check('phone').not().isEmpty(),
         check('address').not().isEmpty(),
         check('joiningDate').not().isEmpty()
     ],
@@ -20,6 +20,7 @@ router.patch('/:uId',
     [
         check('fullName').isLength({ min: 2 }),
         check('email').not().isEmpty(),
+        check('phone').not().isEmpty(),
         check('email').isEmail(),
         check('address').not().isEmpty(),
         check('joiningDate').not().isEmpty()

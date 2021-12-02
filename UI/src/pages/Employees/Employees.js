@@ -41,8 +41,10 @@ const headCells = [
     { id: 'fullName', label: 'Employee Name' },
     { id: 'email', label: 'Email Address' },
     { id: 'address', label: 'Address' },
-    { id: 'joiningDate', label: 'Joining Date' },
+    { id: 'phone', label: 'Phone' },
+    { id: 'joiningDate', label: 'Joining Date' },    
     { id: 'actions', label: 'Actions', disableSorting: true }
+
 ]
 
 export default function Employees() {
@@ -225,6 +227,7 @@ export default function Employees() {
                                                     <TableCell>{item.fullName}</TableCell>
                                                     <TableCell>{item.email}</TableCell>
                                                     <TableCell>{item.address}</TableCell>
+                                                    <TableCell>{item.phone}</TableCell>
                                                     <TableCell>{new Date(item.joiningDate).toDateString()}</TableCell>
                                                     <TableCell>
                                                         <Controls.ActionButton

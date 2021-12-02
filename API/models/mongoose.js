@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const uri = "mongodb+srv://<yourUsername>:<yourpassword>@cluster0.zvpks.mongodb.net/employeeDB?retryWrites=true&w=majority";
+const uri = "mongodb+srv://root:5CtoysIcT0zQYL1x@cluster0.zvpks.mongodb.net/employeeDB?retryWrites=true&w=majority";
 
 const mongooseClient = mongoose.connect(uri).
 then(()=>{console.log("Connected to Database")}).

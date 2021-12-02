@@ -43,12 +43,14 @@ const insertEmployee = async (req, res, next) => {
         throw new HttpError('Invalid inputs passed,Please check your input data.', 422);
     }
 
-    const { id, fullName, email, address, joiningDate } = req.body;
+    const { id, fullName, email, address, phone, joiningDate } = req.body;
+    
     const employeeToBeInserted = new Employee({
         id: uuidv4(),
         fullName,
         email,
         address,
+        phone,
         joiningDate
     });
 
@@ -56,6 +58,7 @@ const insertEmployee = async (req, res, next) => {
         await employeeToBeInserted.save();
     }
     catch (err) {
+
         console.log({ err });
         return next(new HttpError('User insertion failed', 500));
     }
@@ -70,7 +73,7 @@ const updateEmployee = async(req, res, next) => {
         throw new HttpError('Invalid inputs passed,Please check your input data.', 422);
     }
 
-    const { fullName, email, address, joiningDate } = req.body;
+    const { id, fullName, email, address, phone, joiningDate } = req.body;
     const userId = req.params.uId;
 
     let employeeToBeUpdated;
@@ -89,7 +92,8 @@ const updateEmployee = async(req, res, next) => {
     employeeToBeUpdated.email = email;
     employeeToBeUpdated.address = address;
     employeeToBeUpdated.joiningDate = joiningDate;
-
+    employeeToBeUpdated.phone = phone;
+    
     try {
         await employeeToBeUpdated.save();        
     } catch (err) {
